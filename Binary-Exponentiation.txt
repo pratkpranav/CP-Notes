@@ -1,0 +1,9 @@
+Binary Exponentiation:
+
+
+1. Basically in case of binary exponentiation what you do is if you have to find let’s suppose x^n then try finding x^n/2 ones and multiply them twice and 
+then depending upon when n is even or odd, we multiply the product with x if n is odd else leave it as it.
+
+2. While finding modulo for large powers we could use many mod properties, starting from a*b%m = ((a%m)*(b%m))%m. There is also a little conclusion using 
+Fermat’s little theorem which is x^n % m = x^( n mod(m-1)) % m if m is a prime number.
+
