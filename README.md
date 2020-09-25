@@ -1,1 +1,1 @@
-This is my repo which contains all the needed Dcoumnetation of all the lagorithm that I will be needing while revising for Competitive Programming. I might also add my own implementation of Algorithms as well for use.
+This is my repo which contains all the needed Documentation of all the algorithm that I will be needing while revising for Competitive Programming. I might also add my own implementation of Algorithms as well for use.
