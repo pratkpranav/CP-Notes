@@ -1,0 +1,20 @@
+Fibonacci numbers possess a lot of interesting properties. Here are a few of them:
+
+Cassini's identity: 
+Fn−1Fn+1−F2n=(−1)n
+
+The "addition" rule:
+Fn+k=FkFn+1+Fk−1Fn
+
+Applying the previous identity to the case k=n, we get:
+F2n=Fn(Fn+1+Fn−1)
+
+From this we can prove by induction that for any positive integer k, Fnk is multiple of Fn.
+
+The inverse is also true: if Fm is multiple of Fn, then m is multiple of n.
+
+GCD identity:
+GCD(Fm,Fn)=FGCD(m,n)
+
+Fibonacci numbers are the worst possible inputs for Euclidean algorithm 
+
