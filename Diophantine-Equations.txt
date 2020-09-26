@@ -1,0 +1,24 @@
+Linear Diophantine Equations
+
+Any equation in the form of a*x + b*y = c where a,b, and c are given and x and y are unknown are known as diophantine equations. Considering only the 
+cases when a!=0 b!=0 and c!=0, then the solution only exists when c%hcf(a,b) == 0. 
+
+We could find all the possible solution as follow:
+
+
+From one solution (x0,y0), we can obtain all the solutions of the given equation.
+
+Let g=gcd(a,b) and let x0,y0 be integers which satisfy the following:
+
+a⋅x0+b⋅y0=c
+Now, we should see that adding b/g to x0, and, at the same time subtracting a/g from y0 will not break the equality:
+
+a⋅(x0+b/g)+b⋅(y0−a/g)=a⋅x0+ b⋅y0 + a⋅b/g−b⋅a/g=c
+Obviously, this process can be repeated again, so all the numbers of the form:
+
+x=x0+k⋅b/g
+y=y0−k⋅a/g
+are solutions of the given Diophantine equation.
+
+Moreover, this is the set of all possible solutions of the given Diophantine equation.
+
