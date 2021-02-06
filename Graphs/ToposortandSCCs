@@ -1,0 +1,84 @@
+/*
+Author: pratkpranav
+*/
+
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+#define off ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0)
+#define maxx 1e9+7
+
+int n,m;
+vector<vector<pair<int,int>>> graph;
+
+
+topologicalUtil(int v, vector<int> &toposort, vector<bool> &visited){
+	visited[v]=true;
+	for(int i=0; i<graph[v].size(); i++){
+		if(!visited[graph[v][i].first]){
+			topologicalUtil(graph[v][i].first, toposort, visited);
+		}
+	}
+	toposort.push_back(v);
+}
+
+vector<int> topologicalsort(){
+	vector<int> toposort;
+	vector<bool> visited;
+	visited.assign(n, false);
+	for(int i=0; i<n; i++){
+		if(!visited[i]){
+			topologicalUtil(i, visited,toposort);
+		}
+	}
+	reverse(toposort.begin(),toposort.end())
+	return toposort;
+}
+
+void SCCUtil(int v, vector<bool> &visited, vector<int> &SCC){
+	visited[v]=true;
+	SCC.push_back(v);
+	for(int i=0; i<graph[v].size(); i++){
+		if(!visited[graph[v][i].first]){
+			SCCUtil(graph[v][i].first, visited);
+		}
+	}
+}
+
+vector<vector<int>> SCCs(vector<int> toposort){
+	vector<bool> visited;
+	visited.assign(n,false);
+	vector<vector<int>> SCCcollection;
+	for(int j=0; j<toposort.size(); j++){
+		int i=toposort[j];
+		if(!visited[i]){
+			vector<int> SCC;
+			SCCUtil(i, visited, SCC);
+			SCCcollection.push_back(SCC);
+		}
+	}
+	return SCCcollection;
+}
+
+int main() {
+	off;
+	cin >> n >> m;
+	graph.assign(n,vector<pair<int,int>>());
+	for(int i=0; i<m; i++){
+		int a,b,c;
+		cin >> a >> b >> c;
+		graph[a-1].push_back(make_pair(b-1,c));
+	}
+	vector<int> toposort=topologicalsort();
+	vector<vector<int>> SCC=SCCs(toposort);
+	for(int i=0; i<SCC.size(); i++){
+		for(int j=0; j<SCC[i].size(); j++){
+			cout << SCC[i][j] << " ";
+		}
+		cout << endl;
+	}
+
+
+
+  	return 0;
+}
